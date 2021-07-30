@@ -1,0 +1,86 @@
+// Colors
+$borderColor: #f5f5f5;
+$buttonTextColor: #5f5d67;
+$buttonActiveTextColor: #000;
+$bottomBorderColor: #9DC5F0;
+$bgColor: #fff;
+$gradientStartColor: #fdfdfd;
+$gradientEndColor: #f5f5f5;
+$footerTextColor: #5F5D67;
+
+// Sizes
+$phoneWidth: 690px;
+$tabletWidth: 759px;
+
+//Mixins
+
+@mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf svg) {
+    $src: null;
+    $extmods: (eot: "?", svg: "#"+ str-replace($name, " ", "_"));
+    $formats: (otf: "opentype", ttf: "truetype");
+
+    @each $ext in $exts {
+        $extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
+        $format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+        $src: append($src, url(quote($path + "." + $extmod)) format(quote($format)), comma);
+    }
+
+    @font-face {
+        font-family: quote($name);
+        font-style: $style;
+        font-weight: $weight;
+        src: $src;
+    }
+}
+
+@include font-face(ArialMT, ' ../fonts/ArialMT', 300, normal, eot woff2 woff ttf);
+
+@mixin font-family($family) {
+    font-family: $family, Arial, TimesNewRoman, sans-serif;
+}
+
+@mixin for-size($size) {
+    @if $size==phone {
+        @media screen and (max-width: $phoneWidth) {
+            @content;
+        }
+    }
+
+    @else if $size==tablet {
+        @media screen and (max-width: $tabletWidth) {
+            @content;
+        }
+    }
+
+    @else if $size==mid-desktop {
+        @media screen and (max-width: $midDesktopWidth) {
+            @content;
+        }
+    }
+
+    @else if $size==desktop {
+        @media screen and (max-width: $desktopWidth) {
+            @content;
+        }
+    }
+
+    @else if $size==big-desktop {
+        @media screen and (max-width: $bigDesktopWidth) {
+            @content;
+        }
+    }
+}
+
+// Animation
+
+@keyframes scale-up-ver-top {
+    0% {
+        transform: scaleY(.4);
+        transform-origin: 100% 0
+    }
+
+    100% {
+        transform: scaleY(1);
+        transform-origin: 100% 0
+    }
+}
