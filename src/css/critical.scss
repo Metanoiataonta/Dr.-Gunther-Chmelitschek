@@ -3,7 +3,7 @@
 body {
     @include font-family(ArialMT);
     background-color: $gradientStartColor;
-    background: linear-gradient($gradientStartColor, $gradientEndColor);
+    background: linear-gradient($bgColor, $gradientStartColor, $gradientEndColor);
     min-height: 100vh;
 }
 
@@ -116,11 +116,12 @@ body {
     margin-bottom: 9px;
 
     .tab {
-        display: none;
+        height: 0px;
+        overflow-y: hidden;
     }
 
     .tab__active {
-        display: block;
+        height: auto;
     }
 
     .main__content {

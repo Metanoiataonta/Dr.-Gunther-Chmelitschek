@@ -340,9 +340,9 @@ a {
 body {
   font-family: ArialMT, Arial, TimesNewRoman, sans-serif;
   background-color: #fdfdfd;
-  background: -webkit-gradient(linear, left top, left bottom, from(#fdfdfd), to(#f5f5f5));
-  background: -o-linear-gradient(#fdfdfd, #f5f5f5);
-  background: linear-gradient(#fdfdfd, #f5f5f5);
+  background: -webkit-gradient(linear, left top, left bottom, from(#fff), color-stop(#fdfdfd), to(#f5f5f5));
+  background: -o-linear-gradient(#fff, #fdfdfd, #f5f5f5);
+  background: linear-gradient(#fff, #fdfdfd, #f5f5f5);
   min-height: 100vh;
 }
 
@@ -440,10 +440,11 @@ body {
   margin-bottom: 9px;
 }
 .main .tab {
-  display: none;
+  height: 0px;
+  overflow-y: hidden;
 }
 .main .tab__active {
-  display: block;
+  height: auto;
 }
 .main .main__content {
   display: -webkit-box;

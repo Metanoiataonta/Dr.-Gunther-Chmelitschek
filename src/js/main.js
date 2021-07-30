@@ -36,7 +36,12 @@ document.addEventListener("DOMContentLoaded", function () {
             arrows: false,
             fixedWidth: '760px',
             autoplay: true,
-            type: 'fade'
+            type: 'fade',
+            breakpoints: {
+                '759': {
+                    fixedWidth: 0
+                }
+            }
 
         });
         slider.mount();
